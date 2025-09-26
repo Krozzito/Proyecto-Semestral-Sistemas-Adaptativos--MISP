@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <random>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 using Clock_timer = chrono::high_resolution_clock;
@@ -40,7 +41,7 @@ int main(int argc, char** argv) {
     ostringstream densidad_str;
     densidad_str << fixed << setprecision(1) << densidad;
     string carpeta = to_string(n);
-    string filename = "dataset_grafos_no_dirigidos/new_"+ carpeta + "_dataset" + "/erdos_n" + to_string(n) + "_p0c" + densidad_str.str() + "_" + to_string(instancia) + ".graph";
+    string filename = "new_"+ carpeta + "_dataset" + "/erdos_n" + to_string(n) + "_p0c" + densidad_str.str() + "_" + to_string(instancia) + ".graph";
 
     ifstream in(filename);
     if (!in) {
