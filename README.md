@@ -64,6 +64,22 @@ python3 run_greedy_random_experiments.py
 ```
 El script solicita k y luego procesa todas las instancias.
 
+# Scripts de prueba
+
+Los scripts de testeo dan más información de com va el proceso de ejecución:
+
+Para el greedy:
+
+```bash
+python3 log_test_greedy.py
+```
+
+Para el greedy aleatorizado:
+
+```bash
+python3 log_test_greedy_random.py
+```
+
 ## Notas sobre rutas
 Los códigos C++ construyen internamente las rutas de los grafos como:
 ```
