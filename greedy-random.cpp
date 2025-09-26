@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
         vector<int> bestH; 
         double bestDensity = numeric_limits<double>::infinity();
 
-           if (first_iteration) {
+           
             // Recolectar todos los candidatos con su densidad
             vector<pair<double, vector<int>>> candidatos;
 
@@ -115,38 +115,11 @@ int main(int argc, char** argv) {
             bestH = candidatos[elegido].second;
 
             first_iteration = false;
-        } else {
 
-            // recorrer vértices activos
-            for (int a = 0; a < n; ++a) {
-                if (removed[a]) continue;
 
-                // Considerar H = {a}
-                {
-                    double density = (double)curr_deg[a]; // /1 implícito
-                    if (density < bestDensity) {
-                        bestDensity = density;
-                        bestH = {a};
-                    }
-                }
-
-                // Considerar H = {a,b} para b > a
-                for (int b = a + 1; b < n; ++b) {
-                    if (removed[b]) continue;
-                    // deben ser independientes (no adyacentes)
-                    if (adj_set[a].find(b) != adj_set[a].end()) continue;
-
-                    double density = (double)(curr_deg[a] + curr_deg[b]) / 2.0;
-                    if (density < bestDensity) {
-                        bestDensity = density;
-                        bestH = {a, b};
-                    }
-                }
-            }
         
 
-            if (bestH.empty()) break; // seguridad
-        }
+        if (bestH.empty()) break; // seguridad
         // agregar H a la solución
         solution_size += (int)bestH.size();
 
